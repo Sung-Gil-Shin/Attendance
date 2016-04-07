@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
 import action.LogInMainAction;
+import action.LoginAction;
 import action.SignUpAction;
 import vo.ActionForward;
 
@@ -52,8 +53,8 @@ public class LoginFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		else if(command.equals("/LogInMain.ams")){
-			action = new LogInMainAction();
+		else if(command.equals("/login.ams")){
+			action = new LoginAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
