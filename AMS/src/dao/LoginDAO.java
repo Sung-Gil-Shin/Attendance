@@ -65,11 +65,11 @@ public class LoginDAO {
 		int socialNumPre = userData.getSocialNumPre();
 		int socialNumPost = userData.getSocialNumPost();
 		String email = userData.getEmail();
-		String phoneNum = userData.getPhoneNum();
+		int phoneNum = userData.getPhoneNum();
 		
 		
 		try {
-			String sql = "INSERT INTO UserData (id,passwd,name,socialNumPre,socialNumPost,email,phoneNum) VALUES(?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO UserData (id,passwd,name,socialNumPre,socialNumPost,email,phoneNum,userNum) VALUES(?,?,?,?,?,?,?,UserData_seq.nextval)";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, id);
 			ps.setString(2, passwd);
@@ -77,7 +77,8 @@ public class LoginDAO {
 			ps.setInt(4, socialNumPre);
 			ps.setInt(5, socialNumPost);
 			ps.setString(6, email);
-			ps.setString(7, phoneNum);
+			ps.setInt(7, phoneNum);
+			
 			
 			result = ps.executeUpdate();
 

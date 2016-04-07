@@ -52,7 +52,7 @@ public class LoginFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		if(command.equals("/LogInMain.ams")){
+		else if(command.equals("/LogInMain.ams")){
 			action = new LogInMainAction();
 			try {
 				forward = action.execute(request, response);

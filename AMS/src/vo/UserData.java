@@ -7,7 +7,7 @@ public class UserData {
 	private int socialNumPost;
 	private String id;
 	private String passwd;
-	private String phoneNum;
+	private int phoneNum;
 	private String email;
 	private int depNum;
 	private int permission;
@@ -18,7 +18,7 @@ public class UserData {
 		
 	}
 	public UserData(String id,String passwd,String name,int socialNumPre,
-			int socialNumPost,String email,String phoneNum){
+			int socialNumPost,String email,int phoneNum){
 		this.id = id;
 		this.passwd = passwd;
 		this.name = name;
@@ -77,10 +77,10 @@ public class UserData {
 	public boolean isLoginFlag() {
 		return loginFlag;
 	}
-	public String getPhoneNum() {
+	public int getPhoneNum() {
 		return phoneNum;
 	}
-	public void setPhoneNum(String phoneNum) {
+	public void setPhoneNum(int phoneNum) {
 		this.phoneNum = phoneNum;
 	}
 	public void setLoginFlag(boolean loginFlag) {
