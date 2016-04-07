@@ -69,7 +69,7 @@ public class LoginDAO {
 		
 		
 		try {
-			String sql = "INSERT INTO UserData (id,passwd,name,socialNumPre,socialNumPost,email,phoneNum,userNum) VALUES(?,?,?,?,?,?,?,UserData_seq.nextval)";
+			String sql = "INSERT INTO UserData (id,passwd,name,socialNumPre,socialNumPost,email,phoneNum,userNum,loginFlag,depNum,Permission,currentStatus) VALUES(?,?,?,?,?,?,?,UserData_seq.nextval,'f',0,0,'f')";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, id);
 			ps.setString(2, passwd);
