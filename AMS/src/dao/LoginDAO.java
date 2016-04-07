@@ -21,13 +21,13 @@ public class LoginDAO {
 	String driverName = "oracle.jdbc.driver.OracleDriver";
 	String url = "jdbc:oracle:thin:@localhost:1521:XE";
 	
-	String id = "java";
-	String psw = "java";
+	String jid = "java";
+	String jpsw = "java";
 	
 	private LoginDAO() {
 		try {
 			Class.forName(driverName);
-			con = DriverManager.getConnection(url,id,psw);
+			con = DriverManager.getConnection(url,jid,jpsw);
 		} catch (Exception e) {
 			 System.out.println(e+"=>½ÇÆÐ");	 
 		}
@@ -59,20 +59,26 @@ public class LoginDAO {
 
 	public int insertUser(UserData userData) {
 		int result = 0;
+		String id = userData.getId();
+		String passwd = userData.getPasswd();
+		String name = userData.getName();
+		int socialNumPre = userData.getSocialNumPre();
+		int socialNumPost = userData.getSocialNumPost();
+		String email = userData.getEmail();
+		String phoneNum = userData.getPhoneNum();
+		
+		
 		try {
-			String sql = "INSERT INTO UserData VALUES(?,?,?,?,?,?,?,?,?,UserData_seq.nextVAL,?,?)";
+			String sql = "INSERT INTO UserData (id,passwd,name,socialNumPre,socialNumPost,email,phoneNum) VALUES(?,?,?,?,?,?,?)";
 			ps = con.prepareStatement(sql);
-			ps.setString(1, userData.getId());
-			ps.setString(2, userData.getPasswd());
-			ps.setString(3, userData.getName());
-			ps.setInt(4, userData.getSocialNumPre());
-			ps.setInt(5, userData.getSocialNumPost());
-			ps.setString(6, userData.getEmail());
-			ps.setInt(7, userData.getPhoneNum());
-			ps.setInt(8, 0);
-			ps.setInt(9, 0);
-			ps.setString(10, "F");
-			ps.setString(11, "F");
+			ps.setString(1, id);
+			ps.setString(2, passwd);
+			ps.setString(3, name);
+			ps.setInt(4, socialNumPre);
+			ps.setInt(5, socialNumPost);
+			ps.setString(6, email);
+			ps.setString(7, phoneNum);
+			
 			result = ps.executeUpdate();
 
 		} catch (Exception e) {

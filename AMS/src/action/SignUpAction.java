@@ -14,6 +14,14 @@ public class SignUpAction implements Action{
 		
 		
 		UserData user = new UserData();
+		user.setId(request.getParameter("id"));
+		user.setPasswd(request.getParameter("passwd"));
+		user.setName(request.getParameter("name"));
+		user.setSocialNumPre(Integer.parseInt(request.getParameter("socialNumPre")));
+		user.setSocialNumPost(Integer.parseInt(request.getParameter("socialNumPost")));
+		user.setEmail(request.getParameter("email"));
+		user.setPhoneNum(request.getParameter("passwd"));
+		
 		
 		SignUpService signUpService = new SignUpService();
 		boolean registSuccess = signUpService.signUpUser(user);

@@ -8,6 +8,8 @@ drop table CompScheData
 drop table DepNoticeData 
 drop table CompNoticeData
 drop table ChattingData 
+drop table permissionData
+
 
 CREATE TABLE UserData(
 id VARCHAR2(10) UNIQUE,
@@ -24,10 +26,13 @@ loginFlag CHAR(1),
 currentStatus CHAR(1),
 CONSTRAINT PK_UserData PRIMARY KEY(userNum)
 )
+ALTER TABLE UserData DROP constraint PK_UserData;
 CREATE SEQUENCE UserData_seq;
 
+alter table UserData modify userNum NUMBER null;
+
 alter table UserData drop constraint FK_depNum;
-alter table DepartmentData drop constraint FK_userNum;
+alter table DepartmentData drop foreign key FK_depNum;
 
 ALTER TABLE UserData
 add CONSTRAINT FK_depNum FOREIGN KEY(userNum)
@@ -45,6 +50,8 @@ ADD CONSTRAINT PK_Department PRIMARY KEY(depNum);
 ALTER TABLE DepartmentData
 ADD CONSTRAINT FK_userNum FOREIGN KEY(userNum)
 REFERENCES userData(userNum);
+
+SELECT * FROM USERDATA;
 
 /*여까지 사원테이블이랑 부서테이블*/
 
@@ -159,3 +166,8 @@ constraint ChattingData_FK_userNum foreign key(userNum)
 references UserData(userNum)
 )
 CREATE SEQUENCE ChattingData_seq;
+
+
+
+
+

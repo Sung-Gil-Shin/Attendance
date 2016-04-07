@@ -20,7 +20,7 @@ public class LogInMainAction implements Action {
 		user.setSocialNumPre(Integer.parseInt(request.getParameter("socialNumPre")));
 		user.setSocialNumPost(Integer.parseInt(request.getParameter("socialNumPost")));
 		user.setEmail(request.getParameter("email"));
-		user.setPhoneNum(Integer.parseInt(request.getParameter("phoneNum")));
+		user.setPhoneNum(request.getParameter("phoneNum"));
 		user.setPermission(Integer.parseInt(request.getParameter("permission")));
 		user.setDepNum(Integer.parseInt(request.getParameter("depNum")));
 		user.setCurrentStatus(false);
