@@ -39,12 +39,12 @@
 
     <div class="container">
 
-      <form class="form-signin">
+      <form class="form-signin" action="login.ams" method="post">
         <h2 class="form-signin-heading">로그인 해주세용 히힝</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="text" id="inputEmail" class="form-control" placeholder="아이디" required autofocus>
+        <input type="text" id="id" name="id" class="form-control" placeholder="아이디" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="비밀번호" required>
+        <input type="password" id="passwd" name="passwd"class="form-control" placeholder="비밀번호" required>
         
         <div class="checkbox">
           <label>

@@ -8,14 +8,14 @@
 </head>
 <body>
 <h2>여긴 회원가입이다 ㅇㅋㅋㅋ</h2>
-<form method="post" action="signUp.ams">
-<label>아이디</label><input type="text" name = "id" value = "${UserData.id }"><br>
-<label>비밀번호</label><input type="password" name = "passwd" value = "${UserData.passwd }"><br>
-<label>이름</label><input type="text" name = "name" value = "${UserData.name}"><br>
-<label>주민등록번호</label><input type="text" name = "socialNum_pre" value = "${UserData.socialNum_Pre}">
-<label>-</label><input type="text" name = "socialNum_post" value = "${UserData.socialNum_Post}"><br>
-<label>이메일</label><input type="email" name = "email" value = "${UserData.email}"><br>
-<label>전화번호</label><input type="text" name = "phoneNum" value = "${UserData.phoneNum}"><br>
+<form action="signUp.ams" method="post" >
+<label>아이디</label><input type="text" name = "id" id="id"><br>
+<label>비밀번호</label><input type="password" name = "passwd" id="passwd"><br>
+<label>이름</label><input type="text" name = "name" id="name"><br>
+<label>주민등록번호</label><input type="number" name = "socialNumPre" id="socialNumPre">
+<label>-</label><input type="number" name = "socialNumPost" id="socialNumPost"><br>
+<label>이메일</label><input type="email" name = "email" id="email"><br>
+<label>전화번호</label><input type="number" name = "phoneNum" id="phoneNum"><br>
 <input type="submit" value="가입"/>
 </form>
 </body>

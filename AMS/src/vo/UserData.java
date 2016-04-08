@@ -1,18 +1,18 @@
 package vo;
 
 public class UserData {
-	int userNum;
-	String name;
-	int socialNumPre;
-	int socialNumPost;
-	String id;
-	String passwd;
-	int phoneNum;
-	String email;
-	int depNum;
-	int permission;
-	boolean loginFlag;
-	boolean currentStatus;
+	private int userNum;
+	private String name;
+	private int socialNumPre;
+	private int socialNumPost;
+	private String id;
+	private String passwd;
+	private int phoneNum;
+	private String email;
+	private int depNum;
+	private int permission;
+	private boolean loginFlag;
+	private boolean currentStatus;
 	
 	public UserData(){
 		
@@ -55,12 +55,7 @@ public class UserData {
 	public void setPasswd(String passwd) {
 		this.passwd = passwd;
 	}
-	public int getPhoneNum() {
-		return phoneNum;
-	}
-	public void setPhoneNum(int phoneNum) {
-		this.phoneNum = phoneNum;
-	}
+	
 	public String getEmail() {
 		return email;
 	}
@@ -81,6 +76,12 @@ public class UserData {
 	}
 	public boolean isLoginFlag() {
 		return loginFlag;
+	}
+	public int getPhoneNum() {
+		return phoneNum;
+	}
+	public void setPhoneNum(int phoneNum) {
+		this.phoneNum = phoneNum;
 	}
 	public void setLoginFlag(boolean loginFlag) {
 		this.loginFlag = loginFlag;
