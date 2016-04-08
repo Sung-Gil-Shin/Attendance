@@ -11,12 +11,12 @@ import vo.UserData;
 
 public class LoginService {
 
-	public boolean LoginUser(String id, String passwd) {
+	public boolean LoginUser(UserData userData) {
 		boolean loginSuccess = false;
 		Connection con = getConnection();
 		LoginDAO loginDAO = LoginDAO.getInstance();
 		loginDAO.setConnection(con);
-		boolean insertCount = loginDAO.login(id,passwd);
+		boolean insertCount = loginDAO.login(userData);
 		if (insertCount) {
 			loginSuccess = true;
 			commit(con);

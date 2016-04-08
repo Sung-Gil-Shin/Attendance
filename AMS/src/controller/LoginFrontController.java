@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
 import action.IdpwdAction;
+import action.IdpwdViewAction;
 import action.LogInMainAction;
 import action.LoginAction;
 import action.SignUpAction;
@@ -64,6 +65,14 @@ public class LoginFrontController extends HttpServlet {
 		}
 		else if(command.equals("/idpasswdFind.ams")){
 			action = new IdpwdAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/idpswFindView.ams")){
+			action = new IdpwdViewAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
