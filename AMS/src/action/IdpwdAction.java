@@ -29,9 +29,16 @@ public class IdpwdAction implements Action {
 			request.setAttribute("id", user.getId());
 			request.setAttribute("passwd", user.getPasswd());
 			
+			/*array_1[0]= user.getId();
+			array_1[1]= user.getPasswd();*/
+			
+			String test = user.getId();
+			System.out.println(test);
+			
 			forward = new ActionForward();
 			forward.setRedirect(true);
 			forward.setUrl("idpswFindView.jsp");  
+			
 			
 		}else{
 			PrintWriter out = response.getWriter();
@@ -40,9 +47,6 @@ public class IdpwdAction implements Action {
 			out.println("alert('find fail')");
 			out.println("</script>");
 		}
-		
-
-		
 		return forward;
 	}
 

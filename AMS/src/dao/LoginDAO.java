@@ -151,10 +151,10 @@ public class LoginDAO {
 			ps.setInt(4, userData.getSocialNumPost());		
 			rs = ps.executeQuery();
 			if (rs.next()) {	
-				ArrayList<String> result = new ArrayList<String>();
+				/*ArrayList<String> result = new ArrayList<String>();*/
 				
 				findSuccess = true;
-				String id=rs.getString("id");
+				String id= rs.getString("id");
 				String passwd=rs.getString("passwd");
 				
 			}else {

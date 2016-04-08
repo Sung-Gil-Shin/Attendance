@@ -3,6 +3,7 @@ package vo;
 public class ActionForward {
 	private String url;
 	private boolean redirect;
+	
 	public String getUrl() {
 		return url;
 	}
@@ -12,7 +13,10 @@ public class ActionForward {
 	public boolean isRedirect() {
 		return redirect;
 	}
+	
 	public void setRedirect(boolean redirect) {
 		this.redirect = redirect;
 	}
+
+	
 }
