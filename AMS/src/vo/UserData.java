@@ -13,9 +13,13 @@ public class UserData {
 	int permission;
 	boolean loginFlag;
 	boolean currentStatus;
-	
 	public UserData(){
 		
+	}
+	
+	public UserData(String id,String passwd){
+		this.id = id;
+		this.passwd = passwd;
 	}
 	public UserData(String id,String passwd,String name,int socialNumPre,
 			int socialNumPost,String email,int phoneNum){
