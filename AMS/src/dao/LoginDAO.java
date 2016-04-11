@@ -34,7 +34,7 @@ public class LoginDAO {
 			Class.forName(driverName);
 			con = DriverManager.getConnection(url, jid, jpsw);
 		} catch (Exception e) {
-			System.out.println(e + "=>½ÇÆÐ");
+			System.out.println(e + "=>ï¿½ï¿½ï¿½ï¿½");
 		}
 	}
 
@@ -61,7 +61,7 @@ public class LoginDAO {
 				st.close();
 
 		} catch (SQLException e) {
-			System.out.println(e + "=> ´Ý±â ¿À·ù");
+			System.out.println(e + "=> ï¿½Ý±ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		}
 
 	}
@@ -136,55 +136,25 @@ public class LoginDAO {
 		return loginSuccess;
 	}
 
-
-	public boolean findIdpsw(UserData userData) {
+	public String findidpswView(String email, String name, int SocialNumPre, int SocialNumPost) {
+		String reValue = null;
 		ResultSet rs = null;
 		PreparedStatement ps = null;
-		String sql = "SELECT * FROM userdata WHERE email=? AND name=? AND socialNumPre=? AND socialNumPost=?";
-		boolean findSuccess = false;
-		
+		String ID = null;
+		String PASS = null;
+		String sql = "SELECT id, passwd FROM userdata WHERE email=? AND name=? AND socialNumPre=? AND socialNumPost=?";
 		try {
 			ps =con.prepareStatement(sql);
-			ps.setString(1, userData.getEmail());
-			ps.setString(2, userData.getName());		
-			ps.setInt(3, userData.getSocialNumPre());		
-			ps.setInt(4, userData.getSocialNumPost());		
+			ps.setString(1, email);
+			ps.setString(2, name);		
+			ps.setInt(3, SocialNumPre);		
+			ps.setInt(4, SocialNumPost);
 			rs = ps.executeQuery();
+			
 			if (rs.next()) {	
-				/*ArrayList<String> result = new ArrayList<String>();*/
-				
-				findSuccess = true;
-				String id= rs.getString("id");
-				String passwd=rs.getString("passwd");
-				
-			}else {
-				findSuccess = false;
-			}
-		} catch (Exception e) {
-			System.out.println(e + "=> find fail");
-		}finally {
-			db_close();
-		}
-		
-		return findSuccess;
-	}
-
-	public UserData findidpswView(UserData userData) {
-		ResultSet rs = null;
-		PreparedStatement ps = null;
-		String sql = "SELECT * FROM userdata WHERE email=? AND name=? AND socialNumPre=? AND socialNumPost=?";
-		try {
-			ps =con.prepareStatement(sql);
-			ps.setString(1, userData.getEmail());
-			ps.setString(2, userData.getName());		
-			ps.setInt(3, userData.getSocialNumPre());		
-			ps.setInt(4, userData.getSocialNumPost());		
-			rs = ps.executeQuery();
-		
-			if (rs.next()) {			
-				userData.setId(rs.getString("id")); 
-				userData.setPasswd(rs.getString("passwd"));
-				System.out.println(rs.getString("id"));
+				ID = rs.getString("id");
+				PASS = rs.getString("passwd");
+				reValue = ID+','+PASS;
 			}else{
 				
 			}
@@ -194,7 +164,7 @@ public class LoginDAO {
 			db_close();
 		}
 		
-		return userData;
+		return reValue;
 	}
 
 }

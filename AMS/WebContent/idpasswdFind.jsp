@@ -82,7 +82,7 @@
 </head>
 <body>
 <div class="leftt">
-   <form name="form1" action="idpasswdFind.ams" method="post">
+   <form name="form1" action="idpswFindView.jsp" method="post">
     <fieldset>
      <legend class="hidden"> ID/비밀번호 찾기 </legend>
      <ul id="findID">

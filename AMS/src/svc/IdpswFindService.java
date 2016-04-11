@@ -2,37 +2,21 @@ package svc;
 
 import static jdbc.JdbcUtil.*;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import dao.LoginDAO;
 import vo.UserData;
 
 public class IdpswFindService {
 
-
-	public boolean idpswFind(UserData userData) {
-		boolean findSuccess = false;
+	public String idpswView(String email, String name, int SocialNumPre, int SocialNumPost) {
+		String reValue = null;
 		Connection con = getConnection();
 		LoginDAO loginDAO = LoginDAO.getInstance();
 		loginDAO.setConnection(con);
-		boolean findflag = loginDAO.findIdpsw(userData);
-		
-		if (findflag) {
-			findSuccess = true;
-			commit(con);
-		} else {
-			rollback(con);
-		}
-		return findSuccess;
-	}
-
-	public UserData idpswView(UserData userData) {
-		Connection con = getConnection();
-		LoginDAO loginDAO = LoginDAO.getInstance();
-		loginDAO.setConnection(con);
-		UserData idpswView =
-				loginDAO.findidpswView(userData);
-		
-		return idpswView;
+		reValue = loginDAO.findidpswView(email, name, SocialNumPre, SocialNumPost);
+		return reValue;
 	}
 
 }
